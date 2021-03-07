@@ -6,6 +6,7 @@ import java.util.Set;
 
 public class Compra {
 
+	// atributos
 	private Long id;
 	private Date data;
 	private Set<ItemCompra> itens;
@@ -16,10 +17,15 @@ public class Compra {
 	private BigDecimal valorFrete;
 	private BigDecimal valorFinal;
 		
+	/**
+	 * Construtor padrão 
+	 */
 	public Compra() {
 		super();
 	}
 
+	
+	// Métodos Get e Set (implementam o encapsulamento dos atributos, visto que os atributos são private)
 	public Long getId() {
 		return id;
 	}
@@ -92,6 +98,10 @@ public class Compra {
 		this.valorFinal = valorFinal;
 	}
 
+	/**
+	 * Método que retorna em uma String a representação do estado do objeto
+	 *  (exemplo de sobreposição com relação ao método toString() da superclasse Object)
+	 */
 	@Override
 	public String toString() {
 		return "Compra [id=" + id + ", data=" + data + ", itens=" + itens + ", cliente=" + cliente + ", loja=" + loja
@@ -99,6 +109,10 @@ public class Compra {
 				+ ", valorFinal=" + valorFinal + "]";
 	}
 
+	/**
+	 * Método que retorna em um valor inteiro a representação do estado do objeto
+	 *  (exemplo de sobreposição com relação ao método hashCode() da superclasse Object)
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -115,6 +129,10 @@ public class Compra {
 		return result;
 	}
 
+	/**
+	 * Método que compara dois objetos do mesmo tipo
+	 *  (exemplo de sobreposição com relação ao método equals() da superclasse Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

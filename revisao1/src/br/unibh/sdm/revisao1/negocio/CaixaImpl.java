@@ -9,8 +9,17 @@ import br.unibh.sdm.revisao1.entidades.ItemCompra;
 import br.unibh.sdm.revisao1.entidades.PessoaFisica;
 import br.unibh.sdm.revisao1.entidades.PessoaJuridica;
 
+/**
+ * Como essa classe implementa a interface Caixa, obrigatoriamente deverá possuir os dois métodos de Caixa
+ * @author jhcru
+ *
+ */
 public class CaixaImpl implements Caixa {
 
+	
+	/**
+	 * Este método serve para siimular o registro de uma conta
+	 */
 	@Override
 	public Compra registar(Set<ItemCompra> itens, PessoaFisica cliente, PessoaJuridica loja, BigDecimal frete, BigDecimal desconto) {
 		Compra c = new Compra();
@@ -27,7 +36,10 @@ public class CaixaImpl implements Caixa {
 		c.setData(new Date());
 		return c;
 	}
-
+	
+	/**
+	 * Este método serve para simular o cancelamento de uma compra
+	 */
 	@Override
 	public Compra cancelar(Compra compra) {
 		compra.setId(null);

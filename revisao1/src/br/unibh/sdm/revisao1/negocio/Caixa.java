@@ -8,8 +8,16 @@ import br.unibh.sdm.revisao1.entidades.ItemCompra;
 import br.unibh.sdm.revisao1.entidades.PessoaFisica;
 import br.unibh.sdm.revisao1.entidades.PessoaJuridica;
 
+/**
+ * Esta é uma Interface, ou contrato de implementação
+ * As classes que implementarem essa interface deverão ter implementados os métodos por ela especificados
+ * @author jhcru
+ *
+ */
+
 public interface Caixa {
 
+	// Veja que os métodos não possuem implementação, mas somente a assinatura	
 	public Compra registar(Set<ItemCompra> itens, PessoaFisica cliente, PessoaJuridica loja, BigDecimal frete, BigDecimal desconto);
 	public Compra cancelar(Compra compra);
 	

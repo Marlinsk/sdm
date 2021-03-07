@@ -3,8 +3,14 @@ package br.unibh.sdm.revisao1.entidades;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * Classe de produto
+ * @author jhcru
+ *
+ */
 public class Produto {
-	
+
+	// atributos
 	private Long id;
 	private String nome;
 	private Date dtCadastro;
@@ -12,11 +18,17 @@ public class Produto {
 	private Categoria categoria;
 	private PessoaJuridica fornecedor;
 	
+	/**
+	 * Construtor padrão 
+	 */
 	public Produto() {
 		super();
 	}
 	
 
+	/**
+	 * Construtor com os atributos (exemplo de sobrecarga em relação ao construtor padrão) 
+	 */
 	public Produto(Long id, String nome, Date dtCadastro, BigDecimal preco, Categoria categoria,
 			PessoaJuridica fornecedor) {
 		super();
@@ -29,6 +41,7 @@ public class Produto {
 	}
 
 
+	// Métodos Get e Set (implementam o encapsulamento dos atributos, visto que os atributos são private)
 	public Long getId() {
 		return id;
 	}
@@ -77,6 +90,10 @@ public class Produto {
 		this.fornecedor = fornecedor;
 	}
 
+	/**
+	 * Método que retorna em uma String a representação do estado do objeto
+	 *  (exemplo de sobreposição com relação ao método toString() da superclasse Object)
+	 */
 	@Override
 	public String toString() {
 		return "Produto [id=" + id + ", nome=" + nome + ", dtCadastro=" + dtCadastro + ", preco=" + preco
@@ -84,6 +101,10 @@ public class Produto {
 				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
+	/**
+	 * Método que retorna em um valor inteiro a representação do estado do objeto
+	 *  (exemplo de sobreposição com relação ao método hashCode() da superclasse Object)
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -97,6 +118,10 @@ public class Produto {
 		return result;
 	}
 
+	/**
+	 * Método que compara dois objetos do mesmo tipo
+	 *  (exemplo de sobreposição com relação ao método equals() da superclasse Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

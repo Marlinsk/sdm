@@ -2,17 +2,30 @@ package br.unibh.sdm.revisao1.entidades;
 
 import java.util.Date;
 
+/**
+ * Esta classe herda de Pessoa, o que quer dizer que possui todos os seus atributos e métodos
+ * @author jhcru
+ *
+ */
+
 public class PessoaJuridica extends Pessoa {
 
+	// atributos
 	private String inscricaoEstadual;
 	private String cnpj;
 	private Date dataConstituicao;
 	
+	/**
+	 * Construtor padrão 
+	 */
 	public PessoaJuridica() {
 		super();
 	}
 	
 
+	/**
+	 * Construtor com os atributos (exemplo de sobrecarga em relação ao construtor padrão) 
+	 */
 	public PessoaJuridica(Long id, String nome, String endereco, String email, String telefone,
 			String inscricaoEstadual, String cnpj, Date dataConstituicao) {
 		super(id, nome, endereco, email, telefone);
@@ -22,6 +35,7 @@ public class PessoaJuridica extends Pessoa {
 	}
 
 
+	// Métodos Get e Set (implementam o encapsulamento dos atributos, visto que os atributos são private)
 	public String getInscricaoEstadual() {
 		return inscricaoEstadual;
 	}
@@ -46,6 +60,10 @@ public class PessoaJuridica extends Pessoa {
 		this.dataConstituicao = dataConstituicao;
 	}
 
+	/**
+	 * Método que retorna em uma String a representação do estado do objeto
+	 *  (exemplo de sobreposição com relação ao método toString() da superclasse Object)
+	 */
 	@Override
 	public String toString() {
 		return "PessoaJuridica [inscricaoEstadual=" + inscricaoEstadual + ", cnpj=" + cnpj + ", dataConstituicao="
@@ -54,6 +72,10 @@ public class PessoaJuridica extends Pessoa {
 				+ super.toString() + ", hashCode()=" + hashCode() + ", getClass()=" + getClass() + "]";
 	}
 
+	/**
+	 * Método que retorna em um valor inteiro a representação do estado do objeto
+	 *  (exemplo de sobreposição com relação ao método hashCode() da superclasse Object)
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -64,6 +86,10 @@ public class PessoaJuridica extends Pessoa {
 		return result;
 	}
 
+	/**
+	 * Método que compara dois objetos do mesmo tipo
+	 *  (exemplo de sobreposição com relação ao método equals() da superclasse Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
