@@ -4,6 +4,11 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
+/**
+ * Classe de Compra
+ * @author jhcru
+ *
+ */
 public class Compra {
 
 	// atributos

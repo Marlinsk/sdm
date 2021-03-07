@@ -1,5 +1,10 @@
 package br.unibh.sdm.revisao1.entidades;
 
+/**
+ * Classe de Categoria
+ * @author jhcru
+ *
+ */
 public class Categoria {
 
 	// atributos

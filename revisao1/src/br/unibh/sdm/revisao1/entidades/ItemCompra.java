@@ -1,5 +1,10 @@
 package br.unibh.sdm.revisao1.entidades;
 
+/**
+ * Classe de ItemCompra
+ * @author jhcru
+ *
+ */
 public class ItemCompra {
 
 	// atributos
