@@ -109,9 +109,9 @@ public class Compra {
 	 */
 	@Override
 	public String toString() {
-		return "Compra [id=" + id + ", data=" + data + ", itens=" + itens + ", cliente=" + cliente + ", loja=" + loja
-				+ ", valorTotal=" + valorTotal + ", desconto=" + desconto + ", valorFrete=" + valorFrete
-				+ ", valorFinal=" + valorFinal + "]";
+		return "Compra [id=" + id + ", \ndata=" + data + ", \nitens=" + itens + ", \ncliente=" + cliente + ", \nloja=" + loja
+				+ ", \nvalorTotal=" + valorTotal + ", \ndesconto=" + desconto + ", \nvalorFrete=" + valorFrete
+				+ ", \nvalorFinal=" + valorFinal + "]";
 	}
 
 	/**

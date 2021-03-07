@@ -16,23 +16,24 @@ import br.unibh.sdm.revisao1.entidades.PessoaJuridica;
  */
 public class CaixaImpl implements Caixa {
 
-	
 	/**
-	 * Este método serve para siimular o registro de uma conta
+	 * Este método serve para simular o registro de uma compra
+	 * Ele calcula o valor final da compra a partir do valor dos produtos, valor do frete e valor fixo de desconto
+	 * 
 	 */
 	@Override
-	public Compra registar(Set<ItemCompra> itens, PessoaFisica cliente, PessoaJuridica loja, BigDecimal frete, BigDecimal desconto) {
+	public Compra registar(Set<ItemCompra> itens, PessoaFisica cliente, PessoaJuridica loja, BigDecimal frete) {
 		Compra c = new Compra();
 		c.setCliente(cliente);
 		c.setLoja(loja);
 		c.setValorFrete(frete);
-		c.setDesconto(desconto);
 		c.setValorTotal(new BigDecimal(0.0));
+		c.setItens(itens);
 		for (ItemCompra item: itens) {
-			System.out.println(item.getProduto().getPreco().multiply(new BigDecimal(item.getQuantidade())));
 			c.setValorTotal(c.getValorTotal().add(item.getProduto().getPreco().multiply(new BigDecimal(item.getQuantidade()))));
 		}
-		c.setValorFinal(c.getValorTotal().add(frete).subtract(desconto));
+		c.setDesconto(c.getValorTotal().multiply(Caixa.DESCONTO));
+		c.setValorFinal(c.getValorTotal().add(c.getValorFrete()).subtract(c.getDesconto()));
 		c.setData(new Date());
 		return c;
 	}

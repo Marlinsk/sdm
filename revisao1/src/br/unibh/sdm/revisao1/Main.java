@@ -51,7 +51,7 @@ public class Main {
 		System.out.println(p2);
 		
 		// Aqui estamos utilizando o método equals() para comparar dois produtos
-		System.out.println(p1.equals(p2));
+		System.out.println("Iguais = "+p1.equals(p2));
 		
 		
 		// Criamos uma lista para armazenar os objetos ItemCompra
@@ -61,7 +61,7 @@ public class Main {
 		
 		// Vamos instanciar um objeto Caixa para poder chamar suas operações/métodos
 		CaixaImpl caixa = new CaixaImpl();
-		Compra compra = caixa.registar(itens, cliente, loja, new BigDecimal(100), new BigDecimal(500));
+		Compra compra = caixa.registar(itens, cliente, loja, new BigDecimal(100));
 		System.out.println(compra);
 		
 	}

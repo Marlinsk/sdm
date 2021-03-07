@@ -17,8 +17,12 @@ import br.unibh.sdm.revisao1.entidades.PessoaJuridica;
 
 public interface Caixa {
 
+	// exemplo de atributo estático de classe
+	public static BigDecimal DESCONTO = new BigDecimal(0.05);
+	
+
 	// Veja que os métodos não possuem implementação, mas somente a assinatura	
-	public Compra registar(Set<ItemCompra> itens, PessoaFisica cliente, PessoaJuridica loja, BigDecimal frete, BigDecimal desconto);
+	public Compra registar(Set<ItemCompra> itens, PessoaFisica cliente, PessoaJuridica loja, BigDecimal frete);
 	public Compra cancelar(Compra compra);
 	
 }
