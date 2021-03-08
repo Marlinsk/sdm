@@ -21,4 +21,4 @@ Este projeto possui os seguintes exemplos:
 * métodos get, set, equals, toString - Foram criados nas classes Produto, Categoria, etc.
 * this e super - Foram utilizados nas classes Produto, Categoria, etc.
 * operador new - Verificar exemplos na classe Main
-* Java Code Conventions - Foi utilizado neste exemplo
+* Java Code Conventions - Foi utilizado neste exemplo (https://www.oracle.com/technetwork/java/codeconventions-150003.pdf)
