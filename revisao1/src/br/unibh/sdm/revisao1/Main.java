@@ -39,14 +39,14 @@ public class Main {
 		System.out.println(cliente);
 		
 		// Agora um objeto PessoaJuridica
-		PessoaJuridica loja = new PessoaJuridica(1L, "Dell", "Rua X", "dell@mail", "23423423", "34234234", "2134112312", null);
+		PessoaJuridica loja = new PessoaJuridica(1L, "Dell", "Rua X", "dell@mail", "23423423", "34234234", "421244532342", null);
 		System.out.println(loja);
 		
 		// Depois dias categorias e dois produtos		
 		Categoria cat1 = new Categoria(1L, "Notebooks");  
-		Produto p1 = new Produto(1L, "Notebook XYZ", null, new BigDecimal(5000), cat1, loja);
+		Produto p1 = new Produto(1L, "Notebook XYZ", null, BigDecimal.valueOf(5000), cat1, loja);
 		Categoria cat2 = new Categoria(2L, "Impressoras");
-		Produto p2 = new Produto(1L, "EcoTank", null, new BigDecimal(1200), cat2, loja);
+		Produto p2 = new Produto(1L, "EcoTank", null, BigDecimal.valueOf(1200), cat2, loja);
 		System.out.println(p1);
 		System.out.println(p2);
 		

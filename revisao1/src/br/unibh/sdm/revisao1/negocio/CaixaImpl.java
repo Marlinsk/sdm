@@ -27,12 +27,12 @@ public class CaixaImpl implements Caixa {
 		c.setCliente(cliente);
 		c.setLoja(loja);
 		c.setValorFrete(frete);
-		c.setValorTotal(new BigDecimal(0.0));
+		c.setValorTotal(BigDecimal.valueOf(0.0));
 		c.setItens(itens);
 		for (ItemCompra item: itens) {
 			c.setValorTotal(c.getValorTotal().add(item.getProduto().getPreco().multiply(new BigDecimal(item.getQuantidade()))));
 		}
-		c.setDesconto(c.getValorTotal().multiply(Caixa.DESCONTO));
+		c.setDesconto(c.getValorTotal().multiply(Desconto.getTaxa(loja)));
 		c.setValorFinal(c.getValorTotal().add(c.getValorFrete()).subtract(c.getDesconto()));
 		c.setData(new Date());
 		return c;
