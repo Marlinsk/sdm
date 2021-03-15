@@ -8,6 +8,11 @@ import org.springframework.data.repository.CrudRepository;
 
 import br.unibh.sdm.backend_cripto.entidades.Criptomoeda;
 
+/**
+ * Esta classe estende o padrão CrudRepository 
+ * @author jhcru
+ *
+ */
 @EnableScan()
 public interface CriptomoedaRepository extends CrudRepository<Criptomoeda, UUID> {
 	
