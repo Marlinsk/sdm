@@ -1,5 +1,6 @@
 package br.unibh.sdm.backend_cripto.tests;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -85,6 +86,7 @@ public class CotacaoTests {
 
 	@Test
 	public void teste1Criacao() throws ParseException {
+		LOGGER.info("Criando objetos...");
 		Cotacao c1 = new Cotacao(df.parse("01/03/2021"), "ETH_TESTE", BigDecimal.valueOf(9816.25),	Moeda.BRL.getDescricao());
 		Cotacao c2 = new Cotacao(df.parse("02/03/2021"), "ETH_TESTE", BigDecimal.valueOf(9849.48),	Moeda.BRL.getDescricao());
 		Cotacao c3 = new Cotacao(df.parse("03/03/2021"), "ETH_TESTE", BigDecimal.valueOf(9925.12),	Moeda.BRL.getDescricao());
@@ -97,7 +99,12 @@ public class CotacaoTests {
 		repository.save(c4);
 		repository.save(c5);
 		repository.save(c6);
-
+		Iterable<Cotacao> lista = repository.findAll();
+		assertNotNull(lista.iterator());
+		for (Cotacao cotacao : lista) {
+			LOGGER.info(cotacao.toString());
+		}
+		LOGGER.info("Pesquisado um objeto");
 		List<Cotacao> result = repository.findByCodigo("ETH_TESTE");
 		assertEquals(result.size(), 6);
 		LOGGER.info("Encontrado: {}", result.size());
@@ -105,9 +112,10 @@ public class CotacaoTests {
 	
 	@Test
 	public void teste2Exclusao() throws ParseException {
+		LOGGER.info("Excluindo objetos...");
 		List<Cotacao> result = repository.findByCodigo("ETH_TESTE");
 		for (Cotacao cotacao : result) {
-			LOGGER.info("Excluindo id = "+cotacao.getId());
+			LOGGER.info("Excluindo Cotacao id = "+cotacao.getId());
 			repository.delete(cotacao);
 		}
 		result = repository.findByCodigo("ETH_TESTE");

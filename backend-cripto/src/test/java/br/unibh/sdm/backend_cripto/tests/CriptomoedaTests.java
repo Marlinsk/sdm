@@ -95,17 +95,23 @@ public class CriptomoedaTests {
 		Criptomoeda c3 = new Criptomoeda("LINK_TESTE", "Chainlink", "Chainlink (LINK) é uma rede oracle descentralizada com o objetivo de conectar smart contracts com dados do mundo inteiro. A Chainlink foi desenvolvida por Sergey Nazarov, com Steve Ellis como cofundador. Foi realizado o ICO em setembro de 2017, arrecadando U$32 milhões, com o fornecimento total de 1 bilhão de tokens LINK.", 
 				df.parse("21/09/2017"));
 		repository.save(c3);
+		LOGGER.info("Pesquisado todos");
 		Iterable<Criptomoeda> lista = repository.findAll();
 		assertNotNull(lista.iterator());
-		LOGGER.info("Pesquisado todos os objetos");
+		for (Criptomoeda criptomoeda : lista) {
+			LOGGER.info(criptomoeda.toString());
+		}
+		LOGGER.info("Pesquisado um objeto");
 		List<Criptomoeda> result = repository.findByNome("Cardano");
 		assertEquals(result.size(), 1);
 		assertEquals(result.get(0).getCodigo(), "ADA_TESTE");
 		LOGGER.info("Encontrado: {}", result.get(0));
 	}
 	
+	
 	@Test
 	public void teste2Exclusao() throws ParseException {
+		LOGGER.info("Excluindo objetos...");
 		Criptomoeda c1 = new Criptomoeda("ETH_TESTE", "Ethereum", "Ethereum é um sistema de blockchain descentralizado e open-source, que possui sua própria criptomoeda, o Ether. O ETH funciona como uma plataforma para várias outras criptomoedas, bem como para a execução de smart contracts descentralizados.", 
 				df.parse("30/06/2015"));
 		repository.delete(c1);
