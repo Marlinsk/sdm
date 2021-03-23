@@ -20,6 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 import br.unibh.sdm.backend_cripto.entidades.Criptomoeda;
 import br.unibh.sdm.backend_cripto.negocio.CriptomoedaService;
 
+/**
+ * Classe contendo as definições de serviços REST/JSON para Criptomoeda
+ * @author jhcru
+ *
+ */
 @RestController
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "criptomoeda")
 public class CriptomoedaController {
@@ -52,14 +57,23 @@ public class CriptomoedaController {
     @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Criptomoeda updateCriptomoeda(@PathVariable String id, 
     		@RequestBody @NotNull Criptomoeda criptomoeda) throws Exception {
-         return criptomoedaService.saveCriptomoeda(criptomoeda);
+    	if (!id.equals(criptomoeda.getCodigo())) {
+    		throw new Exception("Codigo "+id+" nao está correto");
+    	}
+    	if (!criptomoedaService.isCriptomoedaExists(criptomoeda)) {
+    		throw new Exception("Criptomoeda com codigo "+id+" não existe");
+    	}
+        return criptomoedaService.saveCriptomoeda(criptomoeda);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(value = "{id}")
     public boolean updateCriptomoeda(@PathVariable String id) throws Exception {
-         criptomoedaService.deleteCriptomoeda(id);
-         return true;
+    	if (!criptomoedaService.isCriptomoedaExists(id)) {
+    		throw new Exception("Criptomoeda com codigo "+id+" não existe");
+    	} 
+    	criptomoedaService.deleteCriptomoeda(id);
+        return true;
     }
     
 }

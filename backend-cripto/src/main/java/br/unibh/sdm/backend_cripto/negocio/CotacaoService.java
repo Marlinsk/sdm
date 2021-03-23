@@ -13,6 +13,11 @@ import org.springframework.stereotype.Service;
 import br.unibh.sdm.backend_cripto.entidades.Cotacao;
 import br.unibh.sdm.backend_cripto.persistencia.CotacaoRepository;
 
+/**
+ * Classe contendo a lógica de negócio para Cotação
+ * @author jhcru
+ *
+ */
 @Service
 public class CotacaoService {
 

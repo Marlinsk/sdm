@@ -9,6 +9,11 @@ import org.springframework.context.annotation.Import;
 
 import br.unibh.sdm.backend_cripto.persistencia.DynamoDBConfig;
 
+/**
+ * Classe executável que inicia a aplicação Spring Boot
+ * @author jhcru
+ *
+ */
 @SpringBootApplication
 @Import({DynamoDBConfig.class})
 public class Application {

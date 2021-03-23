@@ -20,6 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 import br.unibh.sdm.backend_cripto.entidades.Cotacao;
 import br.unibh.sdm.backend_cripto.negocio.CotacaoService;
 
+/**
+ * Classe contendo as definições de serviços REST/JSON para Cotacao
+ * @author jhcru
+ *
+ */
 @RestController
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "cotacao")
 public class CotacaoController {

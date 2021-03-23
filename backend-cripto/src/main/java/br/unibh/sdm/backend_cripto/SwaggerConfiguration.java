@@ -11,6 +11,12 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * Contém as configurações para funcionar a documentação de serviços REST com Swagger<br>
+ * Endereço: http://servidor:porta/cripto-api/swagger-ui.html 
+ * @author jhcru
+ *
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfiguration {

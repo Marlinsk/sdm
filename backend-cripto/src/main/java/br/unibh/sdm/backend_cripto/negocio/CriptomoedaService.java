@@ -13,6 +13,11 @@ import org.springframework.stereotype.Service;
 import br.unibh.sdm.backend_cripto.entidades.Criptomoeda;
 import br.unibh.sdm.backend_cripto.persistencia.CriptomoedaRepository;
 
+/**
+ * Classe contendo a lógica de negócio para Criptomoeda
+ * @author jhcru
+ *
+ */
 @Service
 public class CriptomoedaService {
 
@@ -76,4 +81,8 @@ public class CriptomoedaService {
         return retorno.isPresent() ? true:  false;
     }
 
+    public boolean isCriptomoedaExists(String codigo){
+    	Optional<Criptomoeda> retorno = this.criptomoedaRepo.findById(codigo);
+        return retorno.isPresent() ? true:  false;
+    }
 }
