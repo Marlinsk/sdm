@@ -51,7 +51,10 @@ public class CriptomoedaController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Criptomoeda createCriptomoeda(@RequestBody @NotNull Criptomoeda criptomoeda) throws Exception {
-         return criptomoedaService.saveCriptomoeda(criptomoeda);
+    	if (criptomoedaService.isCriptomoedaExists(criptomoeda.getCodigo())) {
+    		throw new Exception("Criptomoeda com codigo "+criptomoeda.getCodigo()+" já existe");
+    	} 
+        return criptomoedaService.saveCriptomoeda(criptomoeda);
     }
     
     @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
